@@ -1,5 +1,7 @@
 # td
 
+Tested on Debian and OSX.
+
 ```
 td: command-line to-do
 Usage: td [options]
@@ -24,4 +26,4 @@ td -L
 - Anish Sujanani, 2023
 ```
 
-Tested on Debian and OSX.
+![output.png][./output.png]
