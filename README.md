@@ -26,4 +26,4 @@ td -L
 - Anish Sujanani, 2023
 ```
 
-![output.png][./output.png]
+![output.png](./output.png)
