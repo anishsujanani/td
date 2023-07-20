@@ -58,7 +58,7 @@ check_macos_gsed_installed() {
 	if [[ $(uname) == "Darwin" ]]; then
 		if ! [[ -x "$(command -v gsed)" ]]; then
 			echo "GNU sed is not installed; Install with: homebrew install gsed"
-			exit -100
+			exit 1
 		fi
 	fi
 }

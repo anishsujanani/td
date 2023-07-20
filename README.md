@@ -24,3 +24,4 @@ td -L
 - Anish Sujanani, 2023
 ```
 
+Tested on Debian and OSX.
