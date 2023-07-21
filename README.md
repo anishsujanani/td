@@ -26,4 +26,9 @@ td -L
 - Anish Sujanani, 2023
 ```
 
+If you have entered the same item multiple times, marking the hash will `x` all copies.  i.e. ```td -x "test"; td -x "test"; td -x "098f"``` will `x` both `"test"` items.
+
+If you'd like to mark multiple items at once, either edit the raw file or use something like `xargs`:  
+```echo -e "aaaa\nbbbb" | xargs -I % td -x %```
+
 ![output.png](./output.png)
