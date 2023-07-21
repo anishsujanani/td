@@ -11,7 +11,7 @@ GNU sed is needed - default on most Linux installations,
 needs to be installed on MacOS with homebrew
 
 Options:
--a item 	Add a new to-do item; returns an item ID
+-a item 	Add a new to-do item
 -x item_hash	Mark an item done
 -l		List (pending) to-do items
 -L		List (all) to-do items
@@ -42,8 +42,11 @@ mark() {
 	
 	sedfunc=sed
 	if [[ $(uname) == "Darwin" ]]; then sedfunc=gsed; fi
-
-	$sedfunc -i $(printf "%s%s" $on_line "s/\[\s\]/\[x\]/") ~/.td/tasks
+	
+	# will handle duplicate tasks
+	for i in $on_line; do 
+		$sedfunc -i $(printf "%s%s" $i "s/\[\s\]/\[x\]/") ~/.td/tasks
+	done
 }
 
 list() {
@@ -71,13 +74,13 @@ main() {
 		usage 
 	fi
 
-	while getopts "a:x:lL" op; do
+	while getopts "a:x:lLh" op; do
 		case $op in
 			a)   add "$OPTARG" ;;
 			x)   mark "$OPTARG" ;;
 			l)   list ;;
-			L)  listall ;;
-			*) usage
+			L)   listall ;;
+			h|*) usage ;;
 		esac
 	done
 	shift $((OPTIND-1))
