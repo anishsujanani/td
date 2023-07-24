@@ -24,6 +24,7 @@ td -L
 
 - Anish Sujanani, 2023
 "
+exit 0
 }
 
 check_or_create_dir() {
@@ -67,12 +68,13 @@ check_macos_gsed_installed() {
 }
 
 main() {
+	if [[ "$#" == 0 ]]; then
+		usage
+		exit 0
+	fi
+
 	check_macos_gsed_installed
 	check_or_create_dir
-
-	if [[ "$#" == 0 || "$#" > 2 ]]; then
-		usage 
-	fi
 
 	while getopts "a:x:lLh" op; do
 		case $op in
