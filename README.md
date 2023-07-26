@@ -12,7 +12,7 @@ GNU sed is needed - default on most Linux installations,
 needs to be installed on MacOS with homebrew
 
 Options:
--a item 	Add a new to-do item; returns an item ID
+-a item 	Add a new to-do item
 -x item_hash	Mark an item done
 -l		List (pending) to-do items
 -L		List (all) to-do items
